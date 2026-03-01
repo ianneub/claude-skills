@@ -8,7 +8,7 @@
       "name": "ianneub-skills",
       "source": "./",
       "description": "Personal skill collection: plan analysis, commit messages, README crafting, design elevation, and professional HTML reports",
-      "version": "1.0.0",
+      "version": "1.1.0",
       "author": {
         "name": "Ian Neubert"
       }
