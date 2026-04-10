@@ -13,28 +13,14 @@ Activate for: presentations, slide decks, dashboards, reports, HTML artifacts, P
 
 ## Workflow
 
-```dot
-digraph elevation {
-  "Visual output requested" [shape=doublecircle];
-  "Is it web/HTML?" [shape=diamond];
-  "Use frontend-design skill" [shape=box];
-  "Create functional draft" [shape=box];
-  "Run elevation protocol" [shape=box];
-  "Pass design interrogation?" [shape=diamond];
-  "Deliver polished result" [shape=doublecircle];
-  "Refine further" [shape=box];
-
-  "Visual output requested" -> "Is it web/HTML?";
-  "Is it web/HTML?" -> "Use frontend-design skill" [label="yes"];
-  "Is it web/HTML?" -> "Create functional draft" [label="no"];
-  "Use frontend-design skill" -> "Run elevation protocol";
-  "Create functional draft" -> "Run elevation protocol";
-  "Run elevation protocol" -> "Pass design interrogation?";
-  "Pass design interrogation?" -> "Deliver polished result" [label="yes"];
-  "Pass design interrogation?" -> "Refine further" [label="no"];
-  "Refine further" -> "Pass design interrogation?";
-}
-```
+1. Visual output requested
+2. Is it web/HTML?
+   - **Yes** → Use frontend-design skill, then continue
+   - **No** → Create functional draft
+3. Run elevation protocol
+4. Pass design interrogation?
+   - **Yes** → Deliver polished result
+   - **No** → Refine further, then repeat from step 4
 
 ## Process (Internal)
 
