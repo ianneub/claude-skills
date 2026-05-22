@@ -308,6 +308,14 @@ document.addEventListener('click', function(e) {
 Always include:
 ```css
 @media print {
+  /* REQUIRED: browsers strip background-color and gradients from print/PDF by
+     default. Without this, the dark report-header prints as invisible white text
+     on white, and tinted callouts/table headers lose their fills. This forces
+     all backgrounds to render. Keep the !important and the -webkit- prefix. */
+  *, *::before, *::after {
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+  }
   .report-header { padding: 32px 0; }
   .card-body { display: block !important; }
   .finding-card { break-inside: avoid; }
@@ -359,6 +367,7 @@ Always include:
 | Purple/gradient color scheme | Use the warm neutral palette with red/amber/blue severity coding. |
 | Missing severity left border on cards | Always include `severity-critical/high/medium` class on finding cards. |
 | Forgetting print styles | Always include `@media print` block. |
+| Dark header / colored fills vanish in printed PDF (white text on white) | Add `print-color-adjust: exact` (and `-webkit-` prefix) with `!important` to `*` inside `@media print` so backgrounds render. |
 | Wrong default expand state | All critical cards get `open` class. High and medium cards are collapsed. |
 | Finding card missing required sections | Every card MUST have: Current State h4, impact box, and remediation box. No exceptions. |
 | Impact box without "Why this matters:" | Always lead with `<strong>Why this matters:</strong>` in impact boxes. |
