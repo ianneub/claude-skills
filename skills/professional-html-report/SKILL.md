@@ -318,8 +318,24 @@ Always include:
   }
   .report-header { padding: 32px 0; }
   .card-body { display: block !important; }
-  .finding-card { break-inside: avoid; }
   body { font-size: 12px; }
+
+  /* Keep self-contained blocks from being split across pages. break-inside is
+     modern; page-break-inside is the legacy alias some PDF engines still need. */
+  .finding-card, .summary-card, .stat-card, table, .toc,
+  .impact-box, .remediation-box, .questions-section, .bar-chart, .verdict {
+    break-inside: avoid;
+    page-break-inside: avoid;
+  }
+  /* Never strand a heading at the bottom of a page, separated from its content. */
+  h2, h3, h4 { break-after: avoid; page-break-after: avoid; }
+
+  /* Opt-in: wrap any group of elements in <div class="avoid-break"> to force
+     them onto a single page (e.g. a chart + its caption, or a short section).
+     NOTE: only works for content shorter than one page. A block taller than the
+     page will still break -- there is no way to fit it on one page. For long
+     sections, rely on the heading rule above instead of wrapping the whole thing. */
+  .avoid-break { break-inside: avoid; page-break-inside: avoid; }
 }
 
 @media (max-width: 680px) {
@@ -329,6 +345,8 @@ Always include:
   .bar-label { width: 100px; font-size: 11px; }
 }
 ```
+
+**Keeping content on one page:** small components (cards, tables, callouts, charts) avoid page breaks automatically via the rules above. To force an arbitrary group onto a single page, wrap it in `<div class="avoid-break">...</div>`. This only works for groups shorter than one page — a block taller than the page will still break, since it physically cannot fit. For a long section, don't wrap the whole thing; the `break-after: avoid` heading rule already keeps each heading attached to the content that follows it.
 
 ## Document Structure
 
@@ -368,6 +386,7 @@ Always include:
 | Missing severity left border on cards | Always include `severity-critical/high/medium` class on finding cards. |
 | Forgetting print styles | Always include `@media print` block. |
 | Dark header / colored fills vanish in printed PDF (white text on white) | Add `print-color-adjust: exact` (and `-webkit-` prefix) with `!important` to `*` inside `@media print` so backgrounds render. |
+| Card/table/section split awkwardly across two printed pages | Apply `break-inside: avoid` (+ legacy `page-break-inside: avoid`) to components in `@media print`; wrap custom groups in `<div class="avoid-break">`. |
 | Wrong default expand state | All critical cards get `open` class. High and medium cards are collapsed. |
 | Finding card missing required sections | Every card MUST have: Current State h4, impact box, and remediation box. No exceptions. |
 | Impact box without "Why this matters:" | Always lead with `<strong>Why this matters:</strong>` in impact boxes. |
