@@ -133,11 +133,16 @@ Center overlay: absolute positioned circle with count + label.
 
 ### 4. Section Headers
 
+Wrap the label + title + intro in a `.section-head` so they stay together AND stay glued to the first content block when printing (see Print & Responsive). Put a section's introductory `section-desc` INSIDE `.section-head`; a `section-desc` used as a trailing note after a table stays outside it.
+
 ```html
 <section class="section" id="section-id">
-  <div class="section-label">Section N</div>       <!-- 11px, uppercase, 2.5px letter-spacing -->
-  <h2 class="section-title">Section Name</h2>      <!-- var(--serif), 28px -->
-  <p class="section-desc">Description text</p>     <!-- 14px, max-width 720px -->
+  <div class="section-head">                         <!-- keeps intro with following content in print -->
+    <div class="section-label">Section N</div>       <!-- 11px, uppercase, 2.5px letter-spacing -->
+    <h2 class="section-title">Section Name</h2>      <!-- var(--serif), 28px -->
+    <p class="section-desc">Description text</p>     <!-- 14px, max-width 720px -->
+  </div>
+  <table>...</table>                                 <!-- content; intro is glued to this -->
 </section>
 ```
 
@@ -330,6 +335,16 @@ Always include:
   /* Never strand a heading at the bottom of a page, separated from its content. */
   h2, h3, h4 { break-after: avoid; page-break-after: avoid; }
 
+  /* A section's intro block (label + title + description, wrapped in
+     .section-head) stays intact AND glued to the content that follows, so a
+     "SECTION N / Title / intro" never strands alone at a page bottom while its
+     table or chart spills to the next page. break-inside keeps the intro from
+     splitting (reliable); break-after requests no break before the content
+     (best-effort -- engines support it imperfectly, and it cannot help when the
+     intro + first content together exceed one page). */
+  .section-head { break-inside: avoid; break-after: avoid;
+                  page-break-inside: avoid; page-break-after: avoid; }
+
   /* Opt-in: wrap any group of elements in <div class="avoid-break"> to force
      them onto a single page (e.g. a chart + its caption, or a short section).
      NOTE: only works for content shorter than one page. A block taller than the
@@ -387,6 +402,7 @@ Always include:
 | Forgetting print styles | Always include `@media print` block. |
 | Dark header / colored fills vanish in printed PDF (white text on white) | Add `print-color-adjust: exact` (and `-webkit-` prefix) with `!important` to `*` inside `@media print` so backgrounds render. |
 | Card/table/section split awkwardly across two printed pages | Apply `break-inside: avoid` (+ legacy `page-break-inside: avoid`) to components in `@media print`; wrap custom groups in `<div class="avoid-break">`. |
+| Section heading stranded at page bottom, its table/chart on the next page | Wrap the section's label+title+intro in `<div class="section-head">` so the intro stays glued to the content that follows it. |
 | Wrong default expand state | All critical cards get `open` class. High and medium cards are collapsed. |
 | Finding card missing required sections | Every card MUST have: Current State h4, impact box, and remediation box. No exceptions. |
 | Impact box without "Why this matters:" | Always lead with `<strong>Why this matters:</strong>` in impact boxes. |
