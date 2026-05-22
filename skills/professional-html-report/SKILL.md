@@ -328,12 +328,16 @@ Always include:
   /* Keep self-contained blocks from being split across pages. break-inside is
      modern; page-break-inside is the legacy alias some PDF engines still need. */
   .finding-card, .summary-card, .stat-card, table, .toc,
-  .impact-box, .remediation-box, .questions-section, .bar-chart, .verdict {
+  .impact-box, .remediation-box, .questions-section, .bar-chart, .verdict, .code-block {
     break-inside: avoid;
     page-break-inside: avoid;
   }
   /* Never strand a heading at the bottom of a page, separated from its content. */
   h2, h3, h4 { break-after: avoid; page-break-after: avoid; }
+  /* Keep a code block glued to the line that introduces it. Best-effort (engines
+     support break-before: avoid imperfectly); for a guaranteed result wrap the
+     intro line + code block together in <div class="avoid-break">. */
+  .code-block { break-before: avoid; page-break-before: avoid; }
 
   /* A section's intro block (label + title + description, wrapped in
      .section-head) stays intact AND glued to the content that follows, so a
@@ -403,6 +407,7 @@ Always include:
 | Dark header / colored fills vanish in printed PDF (white text on white) | Add `print-color-adjust: exact` (and `-webkit-` prefix) with `!important` to `*` inside `@media print` so backgrounds render. |
 | Card/table/section split awkwardly across two printed pages | Apply `break-inside: avoid` (+ legacy `page-break-inside: avoid`) to components in `@media print`; wrap custom groups in `<div class="avoid-break">`. |
 | Section heading stranded at page bottom, its table/chart on the next page | Wrap the section's label+title+intro in `<div class="section-head">` so the intro stays glued to the content that follows it. |
+| Code block separated from the line that introduces it (or split mid-block) | `.code-block` gets `break-inside: avoid`; for a guaranteed pairing wrap the intro line + code block in `<div class="avoid-break">` (e.g. numbered "step + code" lists). |
 | Wrong default expand state | All critical cards get `open` class. High and medium cards are collapsed. |
 | Finding card missing required sections | Every card MUST have: Current State h4, impact box, and remediation box. No exceptions. |
 | Impact box without "Why this matters:" | Always lead with `<strong>Why this matters:</strong>` in impact boxes. |
