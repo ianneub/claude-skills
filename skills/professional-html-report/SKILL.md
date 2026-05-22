@@ -328,7 +328,8 @@ Always include:
   /* Keep self-contained blocks from being split across pages. break-inside is
      modern; page-break-inside is the legacy alias some PDF engines still need. */
   .finding-card, .summary-card, .stat-card, table, .toc,
-  .impact-box, .remediation-box, .questions-section, .bar-chart, .verdict, .code-block {
+  .impact-box, .remediation-box, .questions-section, .bar-chart, .verdict, .code-block,
+  .report-footer {
     break-inside: avoid;
     page-break-inside: avoid;
   }
