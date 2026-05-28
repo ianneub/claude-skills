@@ -1,0 +1,307 @@
+{
+ "places": {
+  "Chattanooga Metropolitan Airport": {
+   "location": "Chattanooga Metropolitan Airport\\n1001 Airport Rd\\, Unit 14\\, Chattanooga\\, TN 37421\\, United States",
+   "structured": "X-APPLE-STRUCTURED-LOCATION;VALUE=URI;X-ADDRESS=\"1001 Airport Rd, Unit 14, Chattanooga, TN 37421, United States\";X-APPLE-MAPKIT-HANDLE=CAESxAIIrk0Q8cn2nenCp5TGARoSCbr4254ghEFAEViGgmPgTFXAInwKDVVuaXRlZCBTdGF0ZXMSAlVTGglUZW5uZXNzZWUiAlROKg9IYW1pbHRvbiBDb3VudHkyC0NoYXR0YW5vb2dhOgUzNzQyMVIKQWlycG9ydCBSZFoEMTAwMWIYMTAwMSBBaXJwb3J0IFJkLCBVbml0IDE0mgEGCAASAjE0KiBDaGF0dGFub29nYSBNZXRyb3BvbGl0YW4gQWlycG9ydDIPMTAwMSBBaXJwb3J0IFJkMgdVbml0IDE0MhVDaGF0dGFub29nYSwgVE4gMzc0MjEyDVVuaXRlZCBTdGF0ZXM4L1ABWjwKKAjxyfad6cKnlMYBEhIJuvjbniCEQUARWIaCY+BMVcAYrk2QAwGYAwGiHw8I8cn2nenCp5TGARoCQAA=;X-APPLE-REFERENCEFRAME=0;X-TITLE=Chattanooga Metropolitan Airport:geo:35.032246,-85.201196",
+   "geo": "35.032246,-85.201196",
+   "has_handle": true
+  },
+  "Seattle-Tacoma International Airport": {
+   "location": "Seattle-Tacoma International Airport\\, 17801 International Blvd\\, Seattle\\, WA 98158\\, USA",
+   "structured": "X-APPLE-STRUCTURED-LOCATION;VALUE=URI;X-APPLE-MAPKIT-HANDLE=CAESyQII2TIaEgkOMV7zqrhHQBExJ2iTQ5NewCKtAQoNVW5pdGVkIFN0YXRlcxICVVMaCldhc2hpbmd0b24iAldBKgtLaW5nIENvdW50eTIGU2VhVGFjOgU5ODE1OFISSW50ZXJuYXRpb25hbCBCbHZkWgUxNzgwMWIYMTc4MDEgSW50ZXJuYXRpb25hbCBCbHZkchFNYWluIFNFQSBUZXJtaW5hbHIkU2VhdHRsZS1UYWNvbWEgSW50ZXJuYXRpb25hbCBBaXJwb3J0KhgxNzgwMSBJbnRlcm5hdGlvbmFsIEJsdmQyGDE3ODAxIEludGVybmF0aW9uYWwgQmx2ZDIRU2VhdGFjLCBXQSAgOTgxNTgyDVVuaXRlZCBTdGF0ZXM4OUAAWiYKJBISCQ4xXvOquEdAETEnaJNDk17AGNkyIIuRsMOHhLLeTpADAQ==;X-APPLE-RADIUS=70.58735937149;X-APPLE-REFERENCEFRAME=1;X-TITLE=\"Seattle-Tacoma International Airport, 17801 International Blvd, Seattle, WA 98158, USA\":geo:47.442717,-122.301000",
+   "geo": "47.442717,-122.301000",
+   "has_handle": true
+  },
+  "John Wayne Airport-Orange County": {
+   "location": "John Wayne Airport-Orange County\\n18601 Airport Way\\, Santa Ana\\, CA 92707\\, United States",
+   "structured": "X-APPLE-STRUCTURED-LOCATION;VALUE=URI;X-ADDRESS=\"18601 Airport Way, Santa Ana, CA 92707, United States\";X-APPLE-MAPKIT-HANDLE=CAES3wIIrk0QgKestZ7c0508GhIJexSuR+HWQEARqd4a2Cp3XcAiogEKDVVuaXRlZCBTdGF0ZXMSAlVTGgpDYWxpZm9ybmlhIgJDQSoGT3JhbmdlMglTYW50YSBBbmE6BTkyNzA3UgtBaXJwb3J0IFdheVoFMTg2MDFiETE4NjAxIEFpcnBvcnQgV2F5ciBKb2huIFdheW5lIEFpcnBvcnQtT3JhbmdlIENvdW50eYoBDUNlbnRyYWwgQ29hc3SKAQlTYW50YSBBbmEqIEpvaG4gV2F5bmUgQWlycG9ydC1PcmFuZ2UgQ291bnR5MhExODYwMSBBaXJwb3J0IFdheTITU2FudGEgQW5hLCBDQSA5MjcwNzINVW5pdGVkIFN0YXRlczgvUAFaOgonCICnrLWe3NOdPBISCXsUrkfh1kBAEaneGtgqd13AGK5NkAMBmAMBoh8OCICnrLWe3NOdPBoCQAA=;X-TITLE=John Wayne Airport-Orange County:geo:33.678750,-117.861990",
+   "geo": "33.678750,-117.861990",
+   "has_handle": true
+  },
+  "O'Hare International Airport": {
+   "location": "O'Hare International Airport\\n10000 W O'Hare Ave\\, Chicago\\, IL  60666\\, United States",
+   "structured": "X-APPLE-STRUCTURED-LOCATION;VALUE=URI;X-ADDRESS=\"10000 W O'Hare Ave, Chicago, IL  60666, United States\";X-TITLE=O'Hare International Airport:geo:41.976417,-87.905109",
+   "geo": "41.976417,-87.905109",
+   "has_handle": false
+  },
+  "Salt Lake City International Airport": {
+   "location": "Salt Lake City International Airport\\n3920 W. Terminal Dr.\\, Salt Lake City\\, UT 84122\\, United States",
+   "structured": "X-APPLE-STRUCTURED-LOCATION;VALUE=URI;X-ADDRESS=\"3920 W. Terminal Dr., Salt Lake City, UT 84122, United States\";X-APPLE-MAPKIT-HANDLE=CAES5QIIrk0Q3teDpI/O3LuIARoSCXUeFf93ZERAERyr3isE/1vAIpkBCg1Vbml0ZWQgU3RhdGVzEgJVUxoEVXRhaCICVVQqCVNhbHQgTGFrZTIOU2FsdCBMYWtlIENpdHk6BTg0MTIyQg5Kb3JkYW4gTWVhZG93c1IPVy4gVGVybWluYWwgRHIuWgQzOTIwYhQzOTIwIFcuIFRlcm1pbmFsIERyLooBDkpvcmRhbiBNZWFkb3dzigEJTm9ydGh3ZXN0KiRTYWx0IExha2UgQ2l0eSBJbnRlcm5hdGlvbmFsIEFpcnBvcnQyFDM5MjAgVy4gVGVybWluYWwgRHIuMhhTYWx0IExha2UgQ2l0eSwgVVQgODQxMjIyDVVuaXRlZCBTdGF0ZXM4L1ABWjwKKAje14Okj87cu4gBEhIJdR4V/3dkREARHKveKwT/W8AYrk2QAwGYAwGiHw8I3teDpI/O3LuIARoCQAA=;X-TITLE=Salt Lake City International Airport:geo:40.784912,-111.984630",
+   "geo": "40.784912,-111.984630",
+   "has_handle": true
+  },
+  "Nashville International Airport": {
+   "location": "Nashville International Airport\\n1 Terminal Dr\\, Nashville\\, TN 37214\\, United States",
+   "structured": "X-APPLE-STRUCTURED-LOCATION;VALUE=URI;X-ADDRESS=\"1 Terminal Dr, Nashville, TN 37214, United States\";X-APPLE-MAPKIT-HANDLE=CAES0wIIrk0Ql5OzmuWj9438ARoSCWJKJNHLEEJAEeXS+IXXqlXAIpgBCg1Vbml0ZWQgU3RhdGVzEgJVUxoJVGVubmVzc2VlIgJUTioIRGF2aWRzb24yCU5hc2h2aWxsZToFMzcyMTRSC1Rlcm1pbmFsIERyWgExYg0xIFRlcm1pbmFsIERych9OYXNodmlsbGUgSW50ZXJuYXRpb25hbCBBaXJwb3J0igELRGlzdHJpY3QgMTOKAQlOYXNodmlsbGUqH05hc2h2aWxsZSBJbnRlcm5hdGlvbmFsIEFpcnBvcnQyDTEgVGVybWluYWwgRHIyE05hc2h2aWxsZSwgVE4gMzcyMTQyDVVuaXRlZCBTdGF0ZXM4L1ABWjwKKAiXk7Oa5aP3jfwBEhIJYkok0csQQkAR5dL4hdeqVcAYrk2QAwGYAwGiHw8Il5OzmuWj9438ARoCQAA=;X-TITLE=Nashville International Airport:geo:36.131220,-86.669404",
+   "geo": "36.131220,-86.669404",
+   "has_handle": true
+  },
+  "Charlotte Douglas International Airport": {
+   "location": "Charlotte Douglas International Airport\\n5501 Josh Birmingham Pkwy\\, Charlotte\\, NC 28208\\, United States",
+   "structured": "X-APPLE-STRUCTURED-LOCATION;VALUE=URI;X-ADDRESS=\"5501 Josh Birmingham Pkwy, Charlotte, NC 28208, United States\";X-APPLE-MAPKIT-HANDLE=CAESuAMIrk0QuvChqPHVp7DwARoSCd+nqtBAnEFAERe6EoFqPFTAIukBCg1Vbml0ZWQgU3RhdGVzEgJVUxoOTm9ydGggQ2Fyb2xpbmEiAk5DKgtNZWNrbGVuYnVyZzIJQ2hhcmxvdHRlOgUyODIwOFIUSm9zaCBCaXJtaW5naGFtIFBrd3laBDU1MDFiGTU1MDEgSm9zaCBCaXJtaW5naGFtIFBrd3lyJ0NoYXJsb3R0ZSBEb3VnbGFzIEludGVybmF0aW9uYWwgQWlycG9ydIoBCUNoYXJsb3R0ZYoBDFN0ZWVsZSBDcmVla4oBFFRvd25zaGlwIDEgQ2hhcmxvdHRligEOV2VzdCBDaGFybG90dGUqJ0NoYXJsb3R0ZSBEb3VnbGFzIEludGVybmF0aW9uYWwgQWlycG9ydDIZNTUwMSBKb3NoIEJpcm1pbmdoYW0gUGt3eTITQ2hhcmxvdHRlLCBOQyAyODIwODINVW5pdGVkIFN0YXRlczgvUAFaPAooCLrwoajx1aew8AESEgnfp6rQQJxBQBEXuhKBajxUwBiuTZADAZgDAaIfDwi68KGo8dWnsPABGgJAAA==;X-APPLE-REFERENCEFRAME=0;X-TITLE=Charlotte Douglas International Airport:geo:35.220728,-80.944001",
+   "geo": "35.220728,-80.944001",
+   "has_handle": true
+  },
+  "Dallas/Fort Worth International Airport": {
+   "location": "Dallas/Fort Worth International Airport\\n2400 Aviation Drive\\, Dallas\\, TX 75261\\, United States",
+   "structured": "X-APPLE-STRUCTURED-LOCATION;VALUE=URI;X-ADDRESS=\"2400 Aviation Drive, Dallas, TX 75261, United States\";X-APPLE-MAPKIT-HANDLE=CAES+gIIrk0QlYHO0PCe8MGmARoSCQTkS6jgckBAEVfrxOV4QljAIrQBCg1Vbml0ZWQgU3RhdGVzEgJVUxoFVGV4YXMiAlRYKgZEYWxsYXMyBklydmluZzoFNzUyNjFSDkF2aWF0aW9uIERyaXZlWgQyNDAwYhMyNDAwIEF2aWF0aW9uIERyaXZlcidEYWxsYXMgRm9ydCBXb3J0aCBJbnRlcm5hdGlvbmFsIEFpcnBvcnSKAQZEYWxsYXOKAQxOb3J0aCBJcnZpbmeKARBTb3V0aHdlc3QgRGFsbGFzKidEYWxsYXMvRm9ydCBXb3J0aCBJbnRlcm5hdGlvbmFsIEFpcnBvcnQyEzI0MDAgQXZpYXRpb24gRHJpdmUyEERhbGxhcywgVFggNzUyNjEyDVVuaXRlZCBTdGF0ZXM4L1ABWjwKKAiVgc7Q8J7wwaYBEhIJBORLqOByQEARV+vE5XhCWMAYrk2QAwGYAwGiHw8IlYHO0PCe8MGmARoCQAA=;X-APPLE-REFERENCEFRAME=0;X-TITLE=Dallas/Fort Worth International Airport:geo:32.897481,-97.038629",
+   "geo": "32.897481,-97.038629",
+   "has_handle": true
+  },
+  "Detroit Metropolitan Wayne County Airport": {
+   "location": "Detroit Metropolitan Wayne County Airport\\n11050 Rogell Drive  \\nDetroit\\, MI 48242\\nUnited States",
+   "structured": "X-APPLE-STRUCTURED-LOCATION;VALUE=URI;X-ADDRESS=\"11050 Rogell Drive  \\nDetroit, MI 48242\\nUnited States\";X-APPLE-MAPKIT-HANDLE=CAES6QIIrk0QwLeLjurj48V6GhIJY4uTsZAaRUARntDrT+LWVMAipAEKDVVuaXRlZCBTdGF0ZXMSAlVTGghNaWNoaWdhbiICTUkqBVdheW5lMgdEZXRyb2l0OgU0ODI0MlIOUm9nZWxsIERyaXZlICBaATFiEjExMDUwIFJvZ2VsbCBEcml2ZXIpRGV0cm9pdCBNZXRyb3BvbGl0YW4gV2F5bmUgQ291bnR5IEFpcnBvcnRyDk5vcnRoIFRlcm1pbmFsigEHRGV0cm9pdCopRGV0cm9pdCBNZXRyb3BvbGl0YW4gV2F5bmUgQ291bnR5IEFpcnBvcnQyNDExMDUwIFJvZ2VsbCBEcml2ZSAgCkRldHJvaXQsIE1JIDQ4MjQyClVuaXRlZCBTdGF0ZXM4L1ABWjoKJwjAt4uO6uPjxXoSEglji5OxkBpFQBGe0OtP4tZUwBiuTZADAZgDAaIfDgjAt4uO6uPjxXoaAkAA;X-TITLE=Detroit Metropolitan Wayne County Airport:geo:42.207541,-83.357563",
+   "geo": "42.207541,-83.357563",
+   "has_handle": true
+  },
+  "Hartsfield-Jackson Atlanta International Airport": {
+   "location": "Hartsfield-Jackson Atlanta International Airport\\n6000 N Terminal Pkwy\\, Atlanta\\, GA  30320\\, United States",
+   "structured": "X-APPLE-STRUCTURED-LOCATION;VALUE=URI;X-ADDRESS=\"6000 N Terminal Pkwy, Atlanta, GA  30320, United States\";X-APPLE-MAPKIT-HANDLE=CAESwAIIrk0Q7r3k5rjzx/yEARoSCUaM6OgC0kBAEd6L1CBxHFXAInIKDVVuaXRlZCBTdGF0ZXMSAlVTGgdHZW9yZ2lhIgJHQSoOQ2xheXRvbiBDb3VudHkyDENvbGxlZ2UgUGFyazoFMzAzMjBSD04gVGVybWluYWwgUGt3eVoENjAwMGIUNjAwMCBOIFRlcm1pbmFsIFBrd3kqMEhhcnRzZmllbGQtSmFja3NvbiBBdGxhbnRhIEludGVybmF0aW9uYWwgQWlycG9ydDIUNjAwMCBOIFRlcm1pbmFsIFBrd3kyEkF0bGFudGEsIEdBICAzMDMyMDINVW5pdGVkIFN0YXRlczgvUAFaOQolCO695Oa488f8hAESEglGjOjoAtJAQBHei9QgcRxVwBiuTZADAaIfDwjuveTmuPPH/IQBGgJAAA==;X-TITLE=Hartsfield-Jackson Atlanta International Airport:geo:33.640714,-84.444405",
+   "geo": "33.640714,-84.444405",
+   "has_handle": true
+  },
+  "Manchester-Boston Regional Airport": {
+   "location": "Manchester-Boston Regional Airport\\n1 Airport Rd\\, Unit 300\\, Manchester\\, NH  03103\\, United States",
+   "structured": "X-APPLE-STRUCTURED-LOCATION;VALUE=URI;X-ADDRESS=\"1 Airport Rd, Unit 300, Manchester, NH  03103, United States\";X-APPLE-MAPKIT-HANDLE=CAESwgIIrk0QqqicudTcsNlzGhIJyzln+tt2RUARl1wgnCrcUcAifQoNVW5pdGVkIFN0YXRlcxICVVMaDU5ldyBIYW1wc2hpcmUiAk5IKhFSb2NraW5naGFtIENvdW50eTIKTWFuY2hlc3RlcjoFMDMxMDNSCkFpcnBvcnQgUmRaATFiFjEgQWlycG9ydCBSZCwgVW5pdCAzMDCaAQcIABIDMzAwKiJNYW5jaGVzdGVyLUJvc3RvbiBSZWdpb25hbCBBaXJwb3J0MgwxIEFpcnBvcnQgUmQyCFVuaXQgMzAwMhVNYW5jaGVzdGVyLCBOSCAgMDMxMDMyDVVuaXRlZCBTdGF0ZXM4L1ABWjoKJwiqqJy51Nyw2XMSEgnLOWf623ZFQBGXXCCcKtxRwBiuTZADAZgDAaIfDgiqqJy51Nyw2XMaAkAA;X-APPLE-REFERENCEFRAME=0;X-TITLE=Manchester-Boston Regional Airport:geo:42.928588,-71.440101",
+   "geo": "42.928588,-71.440101",
+   "has_handle": true
+  },
+  "Ronald Reagan Washington National Airport": {
+   "location": "Ronald Reagan Washington National Airport\\n2401 S Smith Blvd\\, Arlington\\, VA  22202\\, United States",
+   "structured": "X-APPLE-STRUCTURED-LOCATION;VALUE=URI;X-ADDRESS=\"2401 S Smith Blvd, Arlington, VA  22202, United States\";X-APPLE-MAPKIT-HANDLE=CAESsgIIrk0Qn+3g48WLopR5GhIJcBtXbUhtQ0ARrzd7scFCU8AibAoNVW5pdGVkIFN0YXRlcxICVVMaCFZpcmdpbmlhIgJWQSoQQXJsaW5ndG9uIENvdW50eTIJQXJsaW5ndG9uOgUyMjIwMlIMUyBTbWl0aCBCbHZkWgQyNDAxYhEyNDAxIFMgU21pdGggQmx2ZCopUm9uYWxkIFJlYWdhbiBXYXNoaW5ndG9uIE5hdGlvbmFsIEFpcnBvcnQyETI0MDEgUyBTbWl0aCBCbHZkMhRBcmxpbmd0b24sIFZBICAyMjIwMjINVW5pdGVkIFN0YXRlczgvUAFaOgonCJ/t4OPFi6KUeRISCXAbV21IbUNAEa83e7HBQlPAGK5NkAMBmAMBoh8OCJ/t4OPFi6KUeRoCQAA=;X-TITLE=Ronald Reagan Washington National Airport:geo:38.853773,-77.043072",
+   "geo": "38.853773,-77.043072",
+   "has_handle": true
+  },
+  "Burlington International Airport": {
+   "location": "Burlington International Airport\\, 1200 Airport Dr\\, South Burlington\\, VT 05403\\, United States",
+   "structured": "X-APPLE-STRUCTURED-LOCATION;VALUE=URI;X-APPLE-MAPKIT-HANDLE=CAES8wEaEgkpf2vY9TtGQBHNPC52AEpSwCKKAQoNVW5pdGVkIFN0YXRlcxICVVMaB1Zlcm1vbnQiAlZUKgpDaGl0dGVuZGVuMhBTb3V0aCBCdXJsaW5ndG9uOgUwNTQwM1IKQWlycG9ydCBEcloEMTIwMGIPMTIwMCBBaXJwb3J0IERyciBCdXJsaW5ndG9uIEludGVybmF0aW9uYWwgQWlycG9ydCoPMTIwMCBBaXJwb3J0IERyMg8xMjAwIEFpcnBvcnQgRHIyG1NvdXRoIEJ1cmxpbmd0b24sIFZUICAwNTQwMzINVW5pdGVkIFN0YXRlczg5QAE=;X-APPLE-RADIUS=99.82623857378088;X-APPLE-REFERENCEFRAME=1;X-TITLE=\"Burlington International Airport, 1200 Airport Dr, South Burlington, VT 05403, United States\":geo:44.468440,-73.156278",
+   "geo": "44.468440,-73.156278",
+   "has_handle": true
+  },
+  "Minneapolis-Saint Paul International Airport": {
+   "location": "Minneapolis-Saint Paul International Airport\\n4300 Glumack Dr\\nSaint Paul\\, MN  55111\\nUnited States",
+   "structured": "X-APPLE-STRUCTURED-LOCATION;VALUE=URI;X-ADDRESS=\"4300 Glumack Dr\\nSaint Paul, MN  55111\\nUnited States\";X-APPLE-MAPKIT-HANDLE=CAESrwIIrk0QkYHWuriAyZQ3GhIJUGG2ruJwRkARlyO/2UFNV8AiaQoNVW5pdGVkIFN0YXRlcxICVVMaCU1pbm5lc290YSICTU4qD0hlbm5lcGluIENvdW50eTIKU2FpbnQgUGF1bDoFNTUxMTFSCkdsdW1hY2sgRHJaBDQzMDBiDzQzMDAgR2x1bWFjayBEciosTWlubmVhcG9saXMtU2FpbnQgUGF1bCBJbnRlcm5hdGlvbmFsIEFpcnBvcnQyMzQzMDAgR2x1bWFjayBEcgpTYWludCBQYXVsLCBNTiAgNTUxMTEKVW5pdGVkIFN0YXRlczgvUAFaOgonCJGB1rq4gMmUNxISCVBhtq7icEZAEZcjv9lBTVfAGK5NkAMBmAMBoh8OCJGB1rq4gMmUNxoCQAA=;X-TITLE=Minneapolis-Saint Paul International Airport:geo:44.881918,-93.207144",
+   "geo": "44.881918,-93.207144",
+   "has_handle": true
+  }
+ },
+ "timezones": {
+  "America/New_York": [
+   "BEGIN:VTIMEZONE",
+   "TZID:America/New_York",
+   "BEGIN:DAYLIGHT",
+   "DTSTART:20070311T020000",
+   "RRULE:FREQ=YEARLY;BYMONTH=3;BYDAY=2SU",
+   "TZNAME:EDT",
+   "TZOFFSETFROM:-0500",
+   "TZOFFSETTO:-0400",
+   "END:DAYLIGHT",
+   "BEGIN:STANDARD",
+   "DTSTART:20071104T020000",
+   "RRULE:FREQ=YEARLY;BYMONTH=11;BYDAY=1SU",
+   "TZNAME:EST",
+   "TZOFFSETFROM:-0400",
+   "TZOFFSETTO:-0500",
+   "END:STANDARD",
+   "END:VTIMEZONE"
+  ],
+  "GMT-0400": [
+   "BEGIN:VTIMEZONE",
+   "TZID:GMT-0400",
+   "BEGIN:STANDARD",
+   "DTSTART:20010101T000000",
+   "TZNAME:GMT-4",
+   "TZOFFSETFROM:-0400",
+   "TZOFFSETTO:-0400",
+   "END:STANDARD",
+   "END:VTIMEZONE"
+  ],
+  "US/Central": [
+   "BEGIN:VTIMEZONE",
+   "TZID:US/Central",
+   "BEGIN:DAYLIGHT",
+   "DTSTART:20070311T020000",
+   "RRULE:FREQ=YEARLY;BYMONTH=3;BYDAY=2SU",
+   "TZNAME:CDT",
+   "TZOFFSETFROM:-0600",
+   "TZOFFSETTO:-0500",
+   "END:DAYLIGHT",
+   "BEGIN:STANDARD",
+   "DTSTART:20071104T020000",
+   "RRULE:FREQ=YEARLY;BYMONTH=11;BYDAY=1SU",
+   "TZNAME:CST",
+   "TZOFFSETFROM:-0500",
+   "TZOFFSETTO:-0600",
+   "END:STANDARD",
+   "END:VTIMEZONE"
+  ],
+  "GMT-0700": [
+   "BEGIN:VTIMEZONE",
+   "TZID:GMT-0700",
+   "BEGIN:STANDARD",
+   "DTSTART:20010101T000000",
+   "TZNAME:GMT-7",
+   "TZOFFSETFROM:-0700",
+   "TZOFFSETTO:-0700",
+   "END:STANDARD",
+   "END:VTIMEZONE"
+  ],
+  "America/Phoenix": [
+   "BEGIN:VTIMEZONE",
+   "TZID:America/Phoenix",
+   "BEGIN:STANDARD",
+   "DTSTART:19440101T000100",
+   "RDATE:19440101T000100",
+   "RDATE:19441001T000100",
+   "RDATE:19671029T020000",
+   "TZNAME:MST",
+   "TZOFFSETFROM:-0600",
+   "TZOFFSETTO:-0700",
+   "END:STANDARD",
+   "END:VTIMEZONE"
+  ],
+  "America/Chicago": [
+   "BEGIN:VTIMEZONE",
+   "TZID:America/Chicago",
+   "BEGIN:DAYLIGHT",
+   "DTSTART:20070311T020000",
+   "RRULE:FREQ=YEARLY;BYMONTH=3;BYDAY=2SU",
+   "TZNAME:CDT",
+   "TZOFFSETFROM:-0600",
+   "TZOFFSETTO:-0500",
+   "END:DAYLIGHT",
+   "BEGIN:STANDARD",
+   "DTSTART:20071104T020000",
+   "RRULE:FREQ=YEARLY;BYMONTH=11;BYDAY=1SU",
+   "TZNAME:CST",
+   "TZOFFSETFROM:-0500",
+   "TZOFFSETTO:-0600",
+   "END:STANDARD",
+   "END:VTIMEZONE"
+  ],
+  "GMT-0600": [
+   "BEGIN:VTIMEZONE",
+   "TZID:GMT-0600",
+   "BEGIN:STANDARD",
+   "DTSTART:20010101T000000",
+   "TZNAME:GMT-6",
+   "TZOFFSETFROM:-0600",
+   "TZOFFSETTO:-0600",
+   "END:STANDARD",
+   "END:VTIMEZONE"
+  ],
+  "US/Mountain": [
+   "BEGIN:VTIMEZONE",
+   "TZID:US/Mountain",
+   "BEGIN:DAYLIGHT",
+   "DTSTART:20070311T020000",
+   "RRULE:FREQ=YEARLY;BYMONTH=3;BYDAY=2SU",
+   "TZNAME:MDT",
+   "TZOFFSETFROM:-0700",
+   "TZOFFSETTO:-0600",
+   "END:DAYLIGHT",
+   "BEGIN:STANDARD",
+   "DTSTART:20071104T020000",
+   "RRULE:FREQ=YEARLY;BYMONTH=11;BYDAY=1SU",
+   "TZNAME:MST",
+   "TZOFFSETFROM:-0600",
+   "TZOFFSETTO:-0700",
+   "END:STANDARD",
+   "END:VTIMEZONE"
+  ],
+  "America/Detroit": [
+   "BEGIN:VTIMEZONE",
+   "TZID:America/Detroit",
+   "BEGIN:DAYLIGHT",
+   "DTSTART:20070311T020000",
+   "RRULE:FREQ=YEARLY;BYMONTH=3;BYDAY=2SU",
+   "TZNAME:EDT",
+   "TZOFFSETFROM:-0500",
+   "TZOFFSETTO:-0400",
+   "END:DAYLIGHT",
+   "BEGIN:STANDARD",
+   "DTSTART:20071104T020000",
+   "RRULE:FREQ=YEARLY;BYMONTH=11;BYDAY=1SU",
+   "TZNAME:EST",
+   "TZOFFSETFROM:-0400",
+   "TZOFFSETTO:-0500",
+   "END:STANDARD",
+   "END:VTIMEZONE"
+  ],
+  "America/Los_Angeles": [
+   "BEGIN:VTIMEZONE",
+   "TZID:America/Los_Angeles",
+   "BEGIN:STANDARD",
+   "DTSTART:19621028T020000",
+   "RRULE:FREQ=YEARLY;UNTIL=20061029T090000Z;BYMONTH=10;BYDAY=-1SU",
+   "TZNAME:PST",
+   "TZOFFSETFROM:-0700",
+   "TZOFFSETTO:-0800",
+   "END:STANDARD",
+   "BEGIN:DAYLIGHT",
+   "DTSTART:20070311T020000",
+   "RRULE:FREQ=YEARLY;BYMONTH=3;BYDAY=2SU",
+   "TZNAME:PDT",
+   "TZOFFSETFROM:-0800",
+   "TZOFFSETTO:-0700",
+   "END:DAYLIGHT",
+   "BEGIN:STANDARD",
+   "DTSTART:20071104T020000",
+   "RRULE:FREQ=YEARLY;BYMONTH=11;BYDAY=1SU",
+   "TZNAME:PST",
+   "TZOFFSETFROM:-0700",
+   "TZOFFSETTO:-0800",
+   "END:STANDARD",
+   "END:VTIMEZONE"
+  ],
+  "GMT-0500": [
+   "BEGIN:VTIMEZONE",
+   "TZID:GMT-0500",
+   "BEGIN:STANDARD",
+   "DTSTART:20010101T000000",
+   "TZNAME:GMT-5",
+   "TZOFFSETFROM:-0500",
+   "TZOFFSETTO:-0500",
+   "END:STANDARD",
+   "END:VTIMEZONE"
+  ],
+  "US/Eastern": [
+   "BEGIN:VTIMEZONE",
+   "TZID:US/Eastern",
+   "BEGIN:DAYLIGHT",
+   "DTSTART:20070311T020000",
+   "RRULE:FREQ=YEARLY;BYMONTH=3;BYDAY=2SU",
+   "TZNAME:EDT",
+   "TZOFFSETFROM:-0500",
+   "TZOFFSETTO:-0400",
+   "END:DAYLIGHT",
+   "BEGIN:STANDARD",
+   "DTSTART:20071104T020000",
+   "RRULE:FREQ=YEARLY;BYMONTH=11;BYDAY=1SU",
+   "TZNAME:EST",
+   "TZOFFSETFROM:-0400",
+   "TZOFFSETTO:-0500",
+   "END:STANDARD",
+   "END:VTIMEZONE"
+  ],
+  "America/Denver": [
+   "BEGIN:VTIMEZONE",
+   "TZID:America/Denver",
+   "BEGIN:DAYLIGHT",
+   "DTSTART:20070311T020000",
+   "RRULE:FREQ=YEARLY;BYMONTH=3;BYDAY=2SU",
+   "TZNAME:MDT",
+   "TZOFFSETFROM:-0700",
+   "TZOFFSETTO:-0600",
+   "END:DAYLIGHT",
+   "BEGIN:STANDARD",
+   "DTSTART:20071104T020000",
+   "RRULE:FREQ=YEARLY;BYMONTH=11;BYDAY=1SU",
+   "TZNAME:MST",
+   "TZOFFSETFROM:-0600",
+   "TZOFFSETTO:-0700",
+   "END:STANDARD",
+   "END:VTIMEZONE"
+  ]
+ }
+}

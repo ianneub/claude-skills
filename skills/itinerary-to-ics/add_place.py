@@ -25,7 +25,8 @@ Getting coordinates (decimal degrees, latitude first):
 """
 import json, os, re, sys
 
-DEFAULT_LIB = os.path.expanduser("~/.itinerary-ics/library.json")
+DEFAULT_LIB = os.path.join(os.path.dirname(os.path.abspath(__file__)),
+                           "library.json")
 
 
 def main():

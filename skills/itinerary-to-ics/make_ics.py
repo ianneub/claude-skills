@@ -11,13 +11,14 @@ Usage:
     python3 make_ics.py itinerary.json [out.ics] [library.json]
 
 Default out.ics:     itinerary.ics
-Default library.json: ~/.itinerary-ics/library.json   (build it first)
+Default library.json: the library.json shipped next to this script.
 
 See itinerary.example.json for the input shape.
 """
 import json, os, sys
 
-DEFAULT_LIB = os.path.expanduser("~/.itinerary-ics/library.json")
+DEFAULT_LIB = os.path.join(os.path.dirname(os.path.abspath(__file__)),
+                           "library.json")
 
 
 def fold(line):

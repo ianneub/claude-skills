@@ -44,32 +44,18 @@ These were the actual failure causes when maps didn't show:
 
 ## Workflow
 
-The location data can't be invented, only copied — so build a library once, then
-generate per trip.
+A curated airport `library.json` **ships with this skill** — `make_ics.py` reads
+it by default, so for flights between major US airports you can skip straight to
+writing the itinerary. Building/extending the library is only needed for a place
+it doesn't cover yet (see "Resolving an airport not in the library").
 
-### 1. Build the location library (once, then grow it)
-
-Ask the user to export a calendar from Apple Calendar (File → Export, or export a
-single calendar) that contains the places they travel through — especially
-airports they fly from. Then harvest it:
-
-```
-python3 build_library.py /path/to/export.ics
-```
-
-This writes `~/.itinerary-ics/library.json` (places + timezone definitions).
-Re-run on more exports to grow it; richer entries (with MapKit handles) win.
-
-> **Privacy:** the library holds the user's real locations (home, etc.). Keep it
-> in `~/.itinerary-ics/` — **never** commit it to a repo or share it.
-
-### 2. Write the itinerary JSON
+### 1. Write the itinerary JSON
 
 Copy `itinerary.example.json` and fill in the trip. Each event names a `place`
 that is matched (case-insensitive substring) against the library. For a place not
 in the library, give coordinates inline instead (see template).
 
-### 3. Generate the ICS
+### 2. Generate the ICS
 
 ```
 python3 make_ics.py mytrip.json ~/Downloads/mytrip.ics
@@ -117,10 +103,15 @@ Confirm the coordinates land on the terminal, not a random field, before adding.
 
 ## Bundled files
 
-- `build_library.py` — harvest places + timezones from an Apple `.ics` export.
+- `library.json` — the shipped location library: curated airports (with Apple
+  MapKit handles) plus US `VTIMEZONE` definitions. Safe to distribute — airports
+  only, no personal locations. All three scripts default to this file.
 - `make_ics.py` — itinerary JSON → folded, CRLF, map-ready `.ics`.
-- `add_place.py` — add a place to the library by coordinates (for airports not
-  in any export). Won't overwrite an entry that already has a MapKit handle.
+- `add_place.py` — add an airport to `library.json` by coordinates (handle-less
+  pin). Won't overwrite an entry that already has a MapKit handle.
+- `build_library.py` — harvest places + timezones from an Apple `.ics` export
+  into `library.json`. **Harvests every place, including personal ones — curate
+  down to airports and review the diff before committing.**
 - `itinerary.example.json` — template showing library lookup and the
   coordinate-only fallback.
 
@@ -146,7 +137,8 @@ Confirm the coordinates land on the terminal, not a random field, before adding.
 
 Notes:
 - `dt` is local wall-clock time `YYYYMMDDThhmmss`; `tz` is an IANA TZID that must
-  exist in the library (it ships timezone blocks from the export).
+  exist in the library (the shipped library includes the common US zones;
+  `build_library.py` adds more from an export).
 - Use `\\n` inside `description` for line breaks.
 - Coordinate-only fallback for an event: replace `place` with
   `"place_title"`, `"address"`, and `"geo": "LAT,LON"`.
@@ -178,7 +170,7 @@ after an update, tell the user to **delete the old events first**, then import.
 | LF line endings | Use CRLF. |
 | Quoting `X-TITLE` / putting `\n` in `X-ADDRESS` | `X-TITLE` unquoted; `X-ADDRESS` quoted with real commas. |
 | Fabricating a MapKit handle | Can't be done offline — harvest from an export, or go handle-less with coordinates. |
-| Committing `library.json` | It's personal data; keep it in `~/.itinerary-ics/`, never in a repo. |
+| Committing personal places into the shipped `library.json` | The bundled library is airports only. `build_library.py` harvests everything from an export — curate to airports and review the diff before committing. |
 | Same-UID re-import shows no map | Delete the old events first, then re-import. |
 | Same `tz` for all legs of a multi-zone trip | Use each airport's local TZID for depart/arrive. |
 | Airport missing from the library | Resolve it (see "Resolving an airport not in the library"): harvest an export, `add_place.py` by coordinates, or inline `geo`. |

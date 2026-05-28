@@ -10,16 +10,19 @@ places you care about, then reuse them verbatim (see make_ics.py).
 Usage:
     python3 build_library.py /path/to/export.ics [library.json]
 
-Default library path: ~/.itinerary-ics/library.json
-Re-run with more exports to grow the library; an existing entry is kept unless a
-new one has a MapKit handle and the old one does not.
+Default library path: the library.json shipped next to this script.
+Re-run with more exports to grow it; an existing entry is kept unless a new one
+has a MapKit handle and the old one does not.
 
-PRIVACY: the library contains the user's real locations (home, etc.). Keep it in
-~/.itinerary-ics/ -- never commit it to a repo or share it.
+IMPORTANT: this harvests EVERY place in the export, including personal ones
+(home, etc.). The shipped library.json must contain only places you intend to
+distribute -- curate it (e.g. keep only airports) and review the diff before
+committing. Never commit personal locations.
 """
 import json, os, sys
 
-DEFAULT_LIB = os.path.expanduser("~/.itinerary-ics/library.json")
+DEFAULT_LIB = os.path.join(os.path.dirname(os.path.abspath(__file__)),
+                           "library.json")
 
 
 def unfold(path):
