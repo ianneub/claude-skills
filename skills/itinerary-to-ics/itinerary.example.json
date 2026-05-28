@@ -1,0 +1,25 @@
+{
+  "prodid": "-//Me//Flight Itinerary//EN",
+  "dtstamp": "20260101T000000Z",
+  "events": [
+    {
+      "uid": "dl3057-20260609-cha-atl@me",
+      "summary": "Delta 3057: Chattanooga (CHA) → Atlanta (ATL)",
+      "description": "Delta Air Lines 3057\\nDelta First Classic (Z)\\nDepart CHA 4:05 PM\\nArrive ATL 5:04 PM\\n\\nFlightAware: https://flightaware.com/live/flight/DAL3057",
+      "url": "https://flightaware.com/live/flight/DAL3057",
+      "place": "Chattanooga Metropolitan Airport",
+      "start": {"tz": "America/New_York", "dt": "20260609T160500"},
+      "end":   {"tz": "America/New_York", "dt": "20260609T170400"}
+    },
+    {
+      "uid": "example-coords-fallback@me",
+      "summary": "Example: a place not in the library (coordinate-only pin)",
+      "description": "When a place isn't in the harvested library, give coordinates\\ndirectly. Map pin works; no rich POI card.",
+      "place_title": "Some Venue",
+      "address": "123 Main St, Anytown, ST 00000, United States",
+      "geo": "35.045000,-85.305000",
+      "start": {"tz": "America/New_York", "dt": "20260609T190000"},
+      "end":   {"tz": "America/New_York", "dt": "20260609T200000"}
+    }
+  ]
+}
