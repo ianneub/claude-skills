@@ -1,6 +1,6 @@
 ---
 name: professional-html-report
-description: Use when generating a client-facing HTML report, security assessment, audit findings document, or any professional single-file report that needs to look polished and print-ready
+description: Use when generating a client-facing HTML report, executive brief, summary, or any polished, print-ready single-file report. For severity-coded findings reports (security assessments, audits, pen tests), use the security-findings-report skill instead.
 ---
 
 # Professional HTML Report
