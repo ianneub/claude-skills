@@ -7,13 +7,26 @@ description: Use when generating a client-facing HTML report, security assessmen
 
 ## Overview
 
-Generate self-contained, single-file HTML reports with a warm light-themed editorial aesthetic. Reports are print-friendly, responsive, and use only Google Fonts + CSS (no JS frameworks). The design is intentionally restrained and professional -- suitable for executive audiences and compliance documentation.
+Generate self-contained, single-file HTML reports with a warm light-themed editorial aesthetic. Reports are print-friendly, responsive, and use only Google Fonts + CSS (no JS frameworks). The design is intentionally restrained and professional -- suitable for executive audiences, client deliverables, and compliance documentation.
+
+For severity-coded **findings** reports (security assessments, audits, pen tests), also use the `security-findings-report` skill, which adds finding cards, severity charts, and remediation structure on top of this design system.
 
 ## When to Use
 
-- Client-facing security assessments, audit reports, infrastructure reviews
-- Any professional document that needs severity-coded findings with remediation
+- Client-facing reports, briefs, summaries, infrastructure reviews, and audit documents
+- Any professional document that should look polished, on-brand, and print-ready
 - Reports that will be printed, exported to PDF, or shared as standalone HTML files
+
+Match the report's heft to the request: a one-pager and a 30-finding audit both use this design system, but at very different structural weight. See **Report Length & Restraint** below.
+
+## Report Length & Restraint
+
+**Structure scales to the requested length. The component library is a toolkit to draw from, not a checklist to fill.**
+
+- When the user asks for a 1-2 page, "short", "concise", "brief", or "executive" report, prefer plain prose and compact tables. Skip the table of contents, charts, and heavy scaffolding. A short report may be a header, a few sections, and a footer — nothing more.
+- Do not pad. Default to the minimum structure that communicates the content clearly. Add components (TOC, charts, collapsible sections, callouts) only when the length and complexity genuinely justify them.
+- Length follows the request, not the template. If asked for two pages, deliver two pages — do not expand every point into multi-part scaffolding to look thorough.
+- Reach for the full apparatus (TOC, summary charts, many sections) only for genuinely long, complex documents where it aids navigation.
 
 ## Design System
 
@@ -99,39 +112,7 @@ White card with 8px border-radius. Uses CSS grid `1fr 1fr` for two columns. Each
 - Link text (14px, weight 500)
 - Optional severity badge (auto margin-left): 10px, weight 700, 2px 8px padding, 3px border-radius
 
-### 3. Executive Summary with Charts
-
-**Donut chart** (pure CSS `conic-gradient`):
-```css
-.donut {
-  width: 120px; height: 120px; border-radius: 50%;
-  background: conic-gradient(var(--accent-red) 0deg Xdeg, var(--accent-amber) Xdeg Ydeg, var(--accent-blue) Ydeg 360deg);
-}
-```
-Center overlay: absolute positioned circle with count + label.
-
-**Donut legend with linked item numbers:** Each item number in the legend is an `<a href="#finding-N">` link to the corresponding finding card. Style the links to inherit text color with a subtle underline:
-```css
-.donut-legend a { color: inherit; text-decoration: underline; text-decoration-color: var(--border-mid); text-underline-offset: 2px; transition: color 0.15s; }
-.donut-legend a:hover { color: var(--accent-blue); text-decoration-color: var(--accent-blue); }
-```
-```html
-<div class="donut-legend">
-  <div><span class="ldot" style="background:var(--accent-red)"></span><strong>Critical</strong> &mdash; Must fix immediately (items <a href="#finding-1">1</a>, <a href="#finding-3">3</a>, ...)</div>
-  <div><span class="ldot" style="background:var(--accent-amber)"></span><strong>High</strong> &mdash; Fix this month (items <a href="#finding-2">2</a>, <a href="#finding-4">4</a>, ...)</div>
-</div>
-```
-
-**Severity bar** (stacked):
-```html
-<div class="severity-chart"> <!-- flex, 10px height, 5px border-radius, overflow hidden -->
-  <div class="sev-bar crit" style="width:45%"></div>
-  <div class="sev-bar high" style="width:45%"></div>
-  <div class="sev-bar med" style="width:10%"></div>
-</div>
-```
-
-### 4. Section Headers
+### 3. Section Headers
 
 Wrap the label + title + intro in a `.section-head` so they stay together AND stay glued to the first content block when printing (see Print & Responsive). Put a section's introductory `section-desc` INSIDE `.section-head`; a `section-desc` used as a trailing note after a table stays outside it.
 
@@ -146,83 +127,7 @@ Wrap the label + title + intro in a `.section-head` so they stay together AND st
 </section>
 ```
 
-### 5. Finding Cards (collapsible)
-
-Core component. Severity indicated by left border (4px solid).
-
-The card-header is `display: flex` with `gap: 16px`. The first child `<div>` (title wrapper) gets `flex: 1; min-width: 0` so it fills available space, pushing the severity badge and chevron to a consistent right-aligned position regardless of title length.
-
-Every finding card gets an `id="finding-N"` attribute for anchor linking from the summary, TOC, and cross-references. Number findings sequentially (#1, #2, #3...) in the order they appear in the report, regardless of any source document numbering.
-
-```html
-<div class="finding-card severity-critical open" id="finding-1">  <!-- or severity-high, severity-medium -->
-  <div class="card-header" onclick="this.parentElement.classList.toggle('open')">
-    <div>                                          <!-- flex:1, min-width:0 -->
-      <div class="card-num">#1</div>               <!-- var(--mono), 12px, sequential -->
-      <div class="card-title">Title</div>          <!-- 16px, weight 700 -->
-    </div>
-    <span class="card-severity critical">Critical</span>  <!-- badge, right-aligned -->
-    <span class="card-chevron">&#9662;</span>              <!-- rotates 180deg when open -->
-  </div>
-  <div class="card-body">
-    <!-- REQUIRED: Every finding card MUST have all three sections below -->
-    <h4>Current State</h4>
-    <p>Description of the current problem with supporting data/tables...</p>
-
-    <div class="impact-box danger">  <!-- danger for critical, warning for high, info for medium -->
-      <strong>Why this matters:</strong> Explanation of risk and compliance impact...
-    </div>
-
-    <div class="remediation-box">
-      <div class="rem-label">How to fix</div>
-      <ol>
-        <li>Numbered remediation steps...</li>
-      </ol>
-    </div>
-  </div>
-</div>
-```
-
-Add `open` class to all critical-severity cards by default. High and medium cards should be collapsed.
-
-**Every finding card MUST contain all three sections:**
-1. **Current State** (`<h4>Current State</h4>`) -- description of the problem with supporting data, tables, or charts
-2. **Impact box** -- explains why this matters and the risk/compliance impact. Use `danger` class for critical, `warning` for high, `info` for medium
-3. **Remediation box** -- numbered steps to fix the issue
-
-No exceptions. A finding without all three sections is incomplete.
-
-**Cross-references:** When a finding's description or remediation refers to another finding, always link it using `<a href="#finding-N">#N</a>`. This lets readers jump directly to the related finding (and auto-expands it). Examples:
-- Remediation step: `see VPC finding <a href="#finding-6">#6</a>`
-- Impact text: `Combined with the short backup retention (see finding <a href="#finding-12">#12</a>)`
-
-### 6. Impact Box
-
-```html
-<div class="impact-box danger">  <!-- or warning, info -->
-  <strong>Why this matters:</strong> Explanation text...
-</div>
-```
-- `danger` = red accent (critical)
-- `warning` = amber accent (high)
-- `info` = blue accent (medium/informational)
-
-Styling: 14px 18px padding, 6px border-radius, 13px font, colored background + border + text.
-
-### 7. Remediation Box
-
-```html
-<div class="remediation-box">
-  <div class="rem-label">How to fix</div>  <!-- green, uppercase -->
-  <ol>
-    <li>Step one</li>
-    <li>Step two with <span class="inline-code">code reference</span></li>
-  </ol>
-</div>
-```
-Green accent: `--accent-green-bg` background, `#bce4cc` border.
-
-### 8. Data Tables
+### 4. Data Tables
 
 ```html
 <table>
@@ -233,7 +138,7 @@ Green accent: `--accent-green-bg` background, `#bce4cc` border.
 ```
 Cell modifiers: `.fail` (red, weight 600), `.warn` (amber), `.ok` (green).
 
-### 9. Bar Charts (pure CSS)
+### 5. Bar Charts (pure CSS)
 
 ```html
 <div class="bar-chart">
@@ -247,21 +152,21 @@ Cell modifiers: `.fail` (red, weight 600), `.warn` (amber), `.ok` (green).
 ```
 Fill colors: `.red`, `.amber`, `.blue`, `.green`, `.gray`.
 
-### 10. Code Blocks
+### 6. Code Blocks
 
 ```html
 <div class="code-block">aws cli command here</div>
 ```
 Dark background (`--text-heading`), green text (`#a8e6a1`), monospace, 12px.
 
-### 11. Inline Code
+### 7. Inline Code
 
 ```html
 <span class="inline-code">variable_name</span>
 ```
 Warm code background, light border, 12px monospace, 2px 7px padding.
 
-### 12. Questions / Callout Section
+### 8. Questions / Callout Section
 
 ```html
 <section class="questions-section" id="questions">
@@ -271,7 +176,7 @@ Warm code background, light border, 12px monospace, 2px 7px padding.
 ```
 Blue accent: `--accent-blue-bg` background, `--accent-blue-border`, 28px 32px padding, serif h3.
 
-### 13. Footer
+### 9. Footer
 
 ```html
 <div class="report-footer">
@@ -280,33 +185,6 @@ Blue accent: `--accent-blue-bg` background, `--accent-blue-border`, 28px 32px pa
 </div>
 ```
 Top border, 12px text, dim color.
-
-## JavaScript
-
-Minimal. Keyboard shortcuts for expand/collapse, plus auto-expand on anchor navigation:
-```js
-// Expand all (Alt+E) / Collapse all (Alt+C)
-document.addEventListener('keydown', function(e) {
-  if (e.key === 'e' && e.altKey) {
-    document.querySelectorAll('.finding-card').forEach(f => f.classList.add('open'));
-  }
-  if (e.key === 'c' && e.altKey) {
-    document.querySelectorAll('.finding-card').forEach(f => f.classList.remove('open'));
-  }
-});
-
-// Auto-expand and scroll to finding card when clicking an anchor link
-document.addEventListener('click', function(e) {
-  var link = e.target.closest('a[href^="#finding-"]');
-  if (!link) return;
-  e.preventDefault();
-  var el = document.querySelector(link.getAttribute('href'));
-  if (el && el.classList.contains('finding-card')) {
-    el.classList.add('open');
-    el.scrollIntoView({ behavior: 'smooth', block: 'start' });
-  }
-});
-```
 
 ## Print & Responsive
 
@@ -378,19 +256,18 @@ Always include:
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>[Report Title]</title>
   [Google Fonts link]
-  <style>[Full CSS from design system]</style>
+  <style>[CSS from design system + print block]</style>
 </head>
 <body>
   <header class="report-header">...</header>
   <div class="page-wrap">
-    <section id="summary">Executive summary + charts</section>
-    <nav class="toc">Table of contents</nav>
-    <section class="section" id="...">Grouped findings</section>
+    <!-- Include only what the report needs (see Report Length & Restraint): -->
+    <nav class="toc">Table of contents</nav>          <!-- optional, longer reports -->
+    <section class="section" id="...">Content sections</section>
     ...
-    <section class="questions-section">Open questions</section>
+    <section class="questions-section">Open questions</section>  <!-- optional -->
     <div class="report-footer">...</div>
   </div>
-  <script>Keyboard shortcuts</script>
 </body>
 </html>
 ```
@@ -403,18 +280,9 @@ Always include:
 | Dark theme | This is a light warm theme. Dark header only. |
 | Generic fonts (Inter, Roboto, Arial) | Use DM Serif Display + Manrope + JetBrains Mono exactly. |
 | Purple/gradient color scheme | Use the warm neutral palette with red/amber/blue severity coding. |
-| Missing severity left border on cards | Always include `severity-critical/high/medium` class on finding cards. |
+| Padding a short report into a long one | Match structure to the requested length; skip TOC/charts for 1-2 page reports. |
 | Forgetting print styles | Always include `@media print` block. |
 | Dark header / colored fills vanish in printed PDF (white text on white) | Add `print-color-adjust: exact` (and `-webkit-` prefix) with `!important` to `*` inside `@media print` so backgrounds render. |
 | Card/table/section split awkwardly across two printed pages | Apply `break-inside: avoid` (+ legacy `page-break-inside: avoid`) to components in `@media print`; wrap custom groups in `<div class="avoid-break">`. |
 | Section heading stranded at page bottom, its table/chart on the next page | Wrap the section's label+title+intro in `<div class="section-head">` so the intro stays glued to the content that follows it. |
 | Code block separated from the line that introduces it (or split mid-block) | `.code-block` gets `break-inside: avoid`; for a guaranteed pairing wrap the intro line + code block in `<div class="avoid-break">` (e.g. numbered "step + code" lists). |
-| Wrong default expand state | All critical cards get `open` class. High and medium cards are collapsed. |
-| Finding card missing required sections | Every card MUST have: Current State h4, impact box, and remediation box. No exceptions. |
-| Impact box without "Why this matters:" | Always lead with `<strong>Why this matters:</strong>` in impact boxes. |
-| Remediation without numbered steps | Use `<ol>` in remediation boxes, not prose paragraphs. |
-| Wrong impact box class for severity | Use `danger` for critical findings, `warning` for high, `info` for medium. |
-| Non-sequential finding numbers | Always number findings #1, #2, #3... in document order, regardless of source numbering. |
-| Finding cards without `id` attributes | Every card needs `id="finding-N"` for anchor linking from summary and cross-references. |
-| Legend item numbers not linked | Each number in the donut legend should be an `<a href="#finding-N">` link. |
-| Unlinked cross-references | Any mention of another finding (e.g., "see #6") must be an `<a href="#finding-N">` link. |
