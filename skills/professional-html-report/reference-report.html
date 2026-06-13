@@ -1,0 +1,709 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cloud Security &amp; Reliability Assessment — Brightwater Logistics</title>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,560;0,9..144,600;0,9..144,620;1,9..144,300;1,9..144,400;1,9..144,560&family=Hanken+Grotesk:wght@400;500;600&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --paper: #f6f2e9;
+      --paper-deep: #ede7d8;
+      --paper-light: #fffdf6;
+      --ink: #20271f;
+      --ink-soft: #51594b;
+      --hairline: #c9c0ab;
+      --accent: #1e7a4e;
+      --accent-soft: #e3ece5;
+      --critical: #9a4a1e;
+      --alert: #8c2f1b;
+    }
+
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      background: #dcd5c4;
+      min-height: 100%;
+    }
+
+    body {
+      font-family: 'Hanken Grotesk', -apple-system, sans-serif;
+      font-size: 15px;
+      line-height: 1.55;
+      color: var(--ink);
+      background: var(--paper);
+      background-image: radial-gradient(ellipse at 50% 0%, rgba(255,253,246,0.7) 0%, transparent 65%);
+      box-shadow: 0 0 0 1px rgba(60,50,30,.08), 0 24px 80px rgba(60,50,30,.18);
+      max-width: 880px;
+      margin: 48px auto 64px;
+      padding: 56px 64px 72px;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* ── KICKER MASTHEAD ── */
+    .kicker {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 10.5px;
+      font-weight: 500;
+      letter-spacing: .22em;
+      text-transform: uppercase;
+      color: var(--ink-soft);
+      padding-bottom: 10px;
+      border-bottom: 1px solid var(--ink);
+      margin-bottom: 0;
+    }
+
+    /* ── H1 ── */
+    h1 {
+      font-family: 'Fraunces', Georgia, serif;
+      font-size: 46px;
+      font-weight: 560;
+      line-height: 1.04;
+      letter-spacing: -.015em;
+      margin: 26px 0 0;
+      color: var(--ink);
+    }
+
+    h1 em {
+      font-style: italic;
+      color: var(--accent);
+      font-weight: 400;
+    }
+
+    .h1-client {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 11px;
+      font-weight: 400;
+      letter-spacing: .18em;
+      text-transform: uppercase;
+      color: var(--ink-soft);
+      margin-top: 10px;
+    }
+
+    /* ── DECK ── */
+    .deck {
+      font-family: 'Fraunces', Georgia, serif;
+      font-style: italic;
+      font-size: 17.5px;
+      font-weight: 400;
+      color: var(--ink-soft);
+      max-width: 620px;
+      margin: 14px 0 30px;
+      line-height: 1.5;
+    }
+
+    /* ── VERDICT TAB ── */
+    .verdict {
+      position: relative;
+      border: 1.5px solid var(--ink);
+      background: linear-gradient(135deg, #fffef9, var(--accent-soft));
+      padding: 22px 26px;
+      margin: 0 0 36px;
+    }
+
+    .verdict-tab {
+      position: absolute;
+      top: -9px;
+      left: 22px;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 10px;
+      font-weight: 600;
+      letter-spacing: .2em;
+      text-transform: uppercase;
+      background: var(--ink);
+      color: var(--paper);
+      padding: 3px 10px;
+    }
+
+    .verdict p {
+      font-size: 14px;
+      line-height: 1.6;
+      color: var(--ink);
+    }
+
+    .verdict strong {
+      font-weight: 600;
+    }
+
+    .verdict .pos {
+      color: var(--accent);
+      font-weight: 600;
+    }
+
+    /* ── SECTION HEADINGS ── */
+    h2 {
+      font-family: 'Fraunces', Georgia, serif;
+      font-size: 21px;
+      font-weight: 600;
+      color: var(--ink);
+      display: flex;
+      align-items: baseline;
+      gap: 12px;
+      margin: 38px 0 6px;
+    }
+
+    h2::after {
+      content: "";
+      flex: 1;
+      border-bottom: 1px solid var(--hairline);
+      transform: translateY(-4px);
+    }
+
+    .sec-num {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 12px;
+      font-weight: 600;
+      color: var(--accent);
+      letter-spacing: .05em;
+      flex-shrink: 0;
+    }
+
+    /* ── SNAPSHOT GRID ── */
+    .snapshot {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      border: 1px solid var(--hairline);
+      background: var(--paper-light);
+      margin-bottom: 8px;
+    }
+
+    .snap-cell {
+      padding: 16px 18px;
+      border-right: 1px solid var(--hairline);
+    }
+
+    .snap-cell:last-child {
+      border-right: none;
+    }
+
+    .snap-label {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 9.5px;
+      font-weight: 500;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+      color: var(--ink-soft);
+      margin-bottom: 6px;
+    }
+
+    .snap-value {
+      font-family: 'Fraunces', Georgia, serif;
+      font-size: 21px;
+      font-weight: 560;
+      color: var(--ink);
+      line-height: 1.1;
+    }
+
+    .snap-value.accent { color: var(--accent); }
+
+    .snap-sub {
+      font-family: 'Fraunces', Georgia, serif;
+      font-style: italic;
+      font-size: 11.5px;
+      color: var(--ink-soft);
+      margin-top: 2px;
+    }
+
+    .snap-fineprint {
+      font-family: 'JetBrains Mono', monospace;
+      font-style: italic;
+      font-size: 10px;
+      color: var(--ink-soft);
+      letter-spacing: .04em;
+      margin-bottom: 6px;
+    }
+
+    /* ── PATHS GRID ── */
+    .paths {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 18px;
+      margin-top: 10px;
+    }
+
+    .path-card {
+      border: 1px solid var(--hairline);
+      background: var(--paper-light);
+    }
+
+    .path-header {
+      padding: 13px 18px;
+      display: flex;
+      align-items: baseline;
+      justify-content: space-between;
+      gap: 10px;
+    }
+
+    .path-header-title {
+      font-family: 'Fraunces', Georgia, serif;
+      font-size: 17px;
+      font-weight: 620;
+      color: var(--paper-light);
+      line-height: 1.1;
+    }
+
+    .path-header.current { background: var(--critical); }
+    .path-header.hardened { background: var(--accent); }
+
+    .path-tag {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 9px;
+      font-weight: 500;
+      letter-spacing: .15em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,.75);
+      flex-shrink: 0;
+    }
+
+    .path-body {
+      padding: 6px 0;
+    }
+
+    .path-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      gap: 12px;
+      padding: 8px 18px;
+      border-bottom: 1px dotted var(--hairline);
+    }
+
+    .path-row:last-child {
+      border-bottom: none;
+    }
+
+    .path-row-label {
+      font-family: 'Hanken Grotesk', sans-serif;
+      font-size: 13px;
+      color: var(--ink-soft);
+      flex: 1;
+    }
+
+    .path-row-val {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 12px;
+      font-weight: 500;
+      white-space: nowrap;
+    }
+
+    .path-row-val.rust { color: var(--critical); }
+    .path-row-val.emerald { color: var(--accent); }
+
+    /* ── FINDINGS TABLE ── */
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 10px;
+      font-size: 14px;
+    }
+
+    table caption {
+      font-family: 'Fraunces', Georgia, serif;
+      font-style: italic;
+      font-size: 12.5px;
+      color: var(--ink-soft);
+      text-align: left;
+      padding: 8px 0 0;
+      caption-side: bottom;
+    }
+
+    thead th {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 10px;
+      font-weight: 500;
+      letter-spacing: .1em;
+      text-transform: uppercase;
+      color: var(--ink-soft);
+      text-align: left;
+      padding: 9px 10px 8px;
+      border-top: 1px solid var(--ink);
+      border-bottom: 1px solid var(--hairline);
+    }
+
+    thead th:last-child {
+      text-align: right;
+    }
+
+    tbody td {
+      padding: 9px 10px;
+      border-bottom: 1px solid var(--paper-deep);
+      vertical-align: top;
+      color: var(--ink);
+    }
+
+    tbody td:last-child {
+      text-align: right;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 12.5px;
+      font-variant-numeric: tabular-nums;
+      color: var(--ink-soft);
+    }
+
+    tbody td:first-child {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 12px;
+      color: var(--ink-soft);
+      font-variant-numeric: tabular-nums;
+      white-space: nowrap;
+    }
+
+    .sev-critical {
+      color: var(--critical);
+      font-weight: 600;
+    }
+
+    .sev-high {
+      color: #7a6020;
+      font-weight: 600;
+    }
+
+    .sev-medium {
+      color: var(--ink-soft);
+      font-weight: 500;
+    }
+
+    tr.row-critical {
+      background: rgba(154, 74, 30, 0.04);
+    }
+
+    /* ── BLAST RADIUS NOTE ── */
+    .note-alert {
+      border-left: 3px solid var(--alert);
+      background: rgba(140, 47, 27, 0.06);
+      padding: 12px 18px;
+      margin-top: 10px;
+    }
+
+    .note-lead {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 10px;
+      font-weight: 600;
+      letter-spacing: .18em;
+      text-transform: uppercase;
+      color: var(--alert);
+      margin-bottom: 5px;
+    }
+
+    .note-alert p {
+      font-size: 14px;
+      line-height: 1.6;
+      color: var(--ink);
+    }
+
+    /* ── ACTION ITEMS ── */
+    ol.actions {
+      counter-reset: act;
+      list-style: none;
+      margin-top: 10px;
+    }
+
+    ol.actions li {
+      counter-increment: act;
+      display: flex;
+      gap: 14px;
+      padding: 9px 0;
+      border-bottom: 1px dotted var(--hairline);
+      align-items: baseline;
+      font-size: 14px;
+      line-height: 1.55;
+    }
+
+    ol.actions li:last-child {
+      border-bottom: none;
+    }
+
+    ol.actions li::before {
+      content: counter(act, decimal-leading-zero);
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 12px;
+      font-weight: 600;
+      color: var(--accent);
+      flex-shrink: 0;
+      padding-top: 1px;
+    }
+
+    /* ── FOOTER ── */
+    .report-footer {
+      margin-top: 44px;
+      padding-top: 12px;
+      border-top: 1px solid var(--ink);
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      gap: 24px;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 10.5px;
+      color: var(--ink-soft);
+      font-variant-numeric: tabular-nums;
+    }
+
+    .footer-right {
+      text-align: right;
+      flex-shrink: 0;
+    }
+
+    /* ── PRINT ── */
+    @media print {
+      html { background: white; }
+
+      body {
+        box-shadow: none;
+        max-width: 100%;
+        padding: 24px 36px;
+        font-size: 13px;
+        margin: 0;
+      }
+
+      h1 { font-size: 34px; }
+
+      *, *::before, *::after {
+        -webkit-print-color-adjust: exact !important;
+        print-color-adjust: exact !important;
+      }
+
+      .verdict,
+      .note-alert,
+      .path-header,
+      .snapshot,
+      .snap-cell,
+      tbody tr.row-critical {
+        -webkit-print-color-adjust: exact !important;
+        print-color-adjust: exact !important;
+      }
+
+      section { break-inside: avoid; }
+      h2, h3 { break-after: avoid; page-break-after: avoid; }
+    }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 720px) {
+      body {
+        padding: 32px 28px 48px;
+      }
+
+      h1 { font-size: 34px; }
+
+      .snapshot {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .snap-cell:nth-child(2) { border-right: none; }
+      .snap-cell:nth-child(1),
+      .snap-cell:nth-child(2) { border-bottom: 1px solid var(--hairline); }
+
+      .paths {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- KICKER MASTHEAD -->
+  <div class="kicker">
+    <span>EndeavorOps &middot; Confidential Assessment</span>
+    <span>June 13, 2026</span>
+  </div>
+
+  <!-- H1 -->
+  <h1>Cloud Security &amp; <em>Reliability</em> Assessment</h1>
+  <div class="h1-client">Brightwater Logistics</div>
+
+  <!-- DECK -->
+  <p class="deck">Brightwater Logistics &mdash; AWS production environment, reviewed against the CIS AWS Foundations Benchmark, the Well-Architected Framework, and 90 days of CloudWatch and billing telemetry.</p>
+
+  <!-- VERDICT -->
+  <div class="verdict">
+    <div class="verdict-tab">The Bottom Line</div>
+    <p>The environment is <strong>production-stable</strong> but carries <strong>three critical exposures</strong> and roughly <strong>31% of monthly spend</strong> tied up in idle or oversized resources. None are hard to fix: the two highest risks &mdash; a <strong>publicly shared RDS snapshot</strong> and <strong>unrotated root access keys</strong> &mdash; can be closed this week. Reliability is genuinely solid at <strong>99.94% uptime</strong>, but a <strong>single-AZ production database</strong> undercuts the whole posture. Fix the data-layer items first; the cost recovery (<span class="pos">~$11.4k/mo</span>) funds the remediation several times over.</p>
+  </div>
+
+  <!-- SECTION 01: WHERE THINGS STAND -->
+  <section>
+    <h2><span class="sec-num">01</span> Where things stand</h2>
+
+    <div class="snapshot">
+      <div class="snap-cell">
+        <div class="snap-label">Monthly Cloud Spend</div>
+        <div class="snap-value">$36.2k</div>
+        <div class="snap-sub">31% recoverable</div>
+      </div>
+      <div class="snap-cell">
+        <div class="snap-label">Critical Findings</div>
+        <div class="snap-value" style="color:var(--critical)">3</div>
+        <div class="snap-sub">of 17 total</div>
+      </div>
+      <div class="snap-cell">
+        <div class="snap-label">Uptime (90d)</div>
+        <div class="snap-value accent">99.94%</div>
+        <div class="snap-sub">single-AZ risk</div>
+      </div>
+      <div class="snap-cell">
+        <div class="snap-label">CIS Compliance</div>
+        <div class="snap-value">68%</div>
+        <div class="snap-sub">target &ge; 90%</div>
+      </div>
+    </div>
+    <div class="snap-fineprint">Metrics derived from Cost Explorer, CloudWatch, and manual benchmark review &mdash; 90-day window ending June 13, 2026.</div>
+  </section>
+
+  <!-- SECTION 02: THE TWO PATHS -->
+  <section>
+    <h2><span class="sec-num">02</span> The two paths</h2>
+
+    <div class="paths">
+      <!-- Current state card -->
+      <div class="path-card">
+        <div class="path-header current">
+          <div class="path-header-title">Current</div>
+          <div class="path-tag">As-is today</div>
+        </div>
+        <div class="path-body">
+          <div class="path-row">
+            <div class="path-row-label">Critical findings open</div>
+            <div class="path-row-val rust">3</div>
+          </div>
+          <div class="path-row">
+            <div class="path-row-label">Multi-AZ database</div>
+            <div class="path-row-val rust">No</div>
+          </div>
+          <div class="path-row">
+            <div class="path-row-label">Idle / oversized spend</div>
+            <div class="path-row-val rust">$11.4k/mo</div>
+          </div>
+          <div class="path-row">
+            <div class="path-row-label">Root access key age</div>
+            <div class="path-row-val rust">412 days</div>
+          </div>
+          <div class="path-row">
+            <div class="path-row-label">Backup retention</div>
+            <div class="path-row-val rust">7 days</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Hardened target card -->
+      <div class="path-card">
+        <div class="path-header hardened">
+          <div class="path-header-title">Hardened target</div>
+          <div class="path-tag">After remediation</div>
+        </div>
+        <div class="path-body">
+          <div class="path-row">
+            <div class="path-row-label">Critical findings open</div>
+            <div class="path-row-val emerald">0</div>
+          </div>
+          <div class="path-row">
+            <div class="path-row-label">Multi-AZ database</div>
+            <div class="path-row-val emerald">Yes</div>
+          </div>
+          <div class="path-row">
+            <div class="path-row-label">Idle / oversized spend</div>
+            <div class="path-row-val emerald">under $1k/mo</div>
+          </div>
+          <div class="path-row">
+            <div class="path-row-label">Root access key age</div>
+            <div class="path-row-val emerald">rotated, none long-lived</div>
+          </div>
+          <div class="path-row">
+            <div class="path-row-label">Backup retention</div>
+            <div class="path-row-val emerald">35 days</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SECTION 03: FINDINGS -->
+  <section>
+    <h2><span class="sec-num">03</span> Findings</h2>
+
+    <table>
+      <caption>Effort is engineer-hours to remediate; the three Critical items total under a day's work.</caption>
+      <thead>
+        <tr>
+          <th>No.</th>
+          <th>Finding</th>
+          <th>Severity</th>
+          <th>Effort</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr class="row-critical">
+          <td>01</td>
+          <td>Public RDS snapshot shared to all AWS accounts</td>
+          <td><span class="sev-critical">Critical</span></td>
+          <td>1 hr</td>
+        </tr>
+        <tr class="row-critical">
+          <td>02</td>
+          <td>Root account access keys unrotated (412 days)</td>
+          <td><span class="sev-critical">Critical</span></td>
+          <td>2 hr</td>
+        </tr>
+        <tr class="row-critical">
+          <td>03</td>
+          <td>Production database single-AZ, no failover</td>
+          <td><span class="sev-critical">Critical</span></td>
+          <td>4 hr</td>
+        </tr>
+        <tr>
+          <td>04</td>
+          <td>Six S3 buckets without default encryption</td>
+          <td><span class="sev-high">High</span></td>
+          <td>3 hr</td>
+        </tr>
+        <tr>
+          <td>05</td>
+          <td>Security groups open to 0.0.0.0/0 on ports 22 &amp; 3389</td>
+          <td><span class="sev-high">High</span></td>
+          <td>2 hr</td>
+        </tr>
+        <tr>
+          <td>06</td>
+          <td>Nine idle/oversized EC2 instances + 14 unattached EBS volumes</td>
+          <td><span class="sev-medium">Medium</span></td>
+          <td>1 day</td>
+        </tr>
+      </tbody>
+    </table>
+  </section>
+
+  <!-- SECTION 04: BLAST RADIUS -->
+  <section>
+    <h2><span class="sec-num">04</span> Blast radius</h2>
+
+    <div class="note-alert">
+      <div class="note-lead">Blast Radius</div>
+      <p>The public RDS snapshot (finding #1) contains a full copy of the customer-orders database, including PII, and has been shareable since the last manual restore 38 days ago. Treat it as a potential disclosure: revoke sharing, rotate database credentials, and review CloudTrail for CopyDBSnapshot / RestoreDBSnapshotFromS3 calls by unknown principals before doing anything else.</p>
+    </div>
+  </section>
+
+  <!-- SECTION 05: ACTION ITEMS -->
+  <section>
+    <h2><span class="sec-num">05</span> Action items</h2>
+
+    <ol class="actions">
+      <li>Revoke the public RDS snapshot and audit CloudTrail for external copies &mdash; today.</li>
+      <li>Rotate then delete the root access keys; move automation onto scoped IAM roles &mdash; this week.</li>
+      <li>Convert the production database to Multi-AZ and extend backups to 35 days &mdash; this week.</li>
+      <li>Enable S3 default encryption org-wide via SCP and close the two internet-facing security groups.</li>
+      <li>Right-size the nine idle/oversized instances and release the 14 unattached volumes &mdash; ~$11.4k/mo recovered, reviewed monthly.</li>
+    </ol>
+  </section>
+
+  <!-- FOOTER -->
+  <div class="report-footer">
+    <span>Sources: CIS AWS Foundations Benchmark V3.0 &middot; AWS Well-Architected &middot; CloudWatch 90D &middot; Cost Explorer &middot; CloudTrail</span>
+    <span class="footer-right">EndeavorOps &middot; Prepared for Brightwater Logistics</span>
+  </div>
+
+</body>
+</html>
