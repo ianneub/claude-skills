@@ -17,7 +17,7 @@ Generate self-contained, single-file HTML reports in a **warm paper editorial** 
 - Executive summaries and one- to several-page documents that should look designed
 - Anything destined for PDF/print or sharing as a standalone `.html` file
 
-This skill is the general house style. For the heavier collapsible **findings-card** format (severity cards with mandatory Current-State / Impact / Remediation blocks, severity donut), see the `security-findings-report` skill, which layers on top of this one.
+This skill is the general house style — the visual **design language**. For **security assessments / findings reports**, the `security-findings-report` skill defines the required *content and structure* (severity model, per-finding write-ups, numbering, cross-references) and renders it with this skill's components. That skill carries no design of its own; it points here.
 
 ## Components are a toolkit, not a checklist
 
