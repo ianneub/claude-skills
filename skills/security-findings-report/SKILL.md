@@ -9,11 +9,11 @@ description: Use when producing a security assessment, audit, penetration-test r
 
 This skill defines **what a security findings report must contain and how to organize it** — the reporting methodology. It is **not** a design skill: it specifies no colors, fonts, or CSS.
 
-**Render with the `professional-html-report` skill.** That skill is the visual design language (warm paper aesthetic, Fraunces / Hanken Grotesk / JetBrains Mono, palette, and component library). This skill maps security content onto those components. For everything visual — tokens, styling, layout, print rules — use `professional-html-report`. Its `reference-report.html` is itself a security assessment and shows these components in use.
+**Render with the `html-report` skill.** That skill is the visual design language (warm paper aesthetic, Fraunces / Hanken Grotesk / JetBrains Mono, palette, and component library). This skill maps security content onto those components. For everything visual — tokens, styling, layout, print rules — use `html-report`. Its `reference-report.html` is itself a security assessment and shows these components in use.
 
 ```
 security-findings-report  →  WHAT to report (this skill: severity model, finding structure, numbering)
-professional-html-report  →  HOW it looks   (design language: tokens + components)
+html-report  →  HOW it looks   (design language: tokens + components)
 ```
 
 ## When to Use
@@ -21,7 +21,7 @@ professional-html-report  →  HOW it looks   (design language: tokens + compone
 - Security assessments, audits, penetration-test reports, infrastructure/security reviews
 - Any report whose body is a set of severity-coded findings, each with impact and remediation
 
-For a general report with no enumerated findings, use `professional-html-report` alone.
+For a general report with no enumerated findings, use `html-report` alone.
 
 ## Severity model
 
@@ -32,7 +32,7 @@ Use one consistent scale throughout — the index, the write-ups, and any overvi
 - **Medium** — meaningful risk requiring specific conditions; schedule a fix.
 - **Low / Info** — hardening or hygiene; address opportunistically. (Include only if used.)
 
-Render severity as **colored text** using `professional-html-report`'s severity tokens — Critical → `--critical` (rust), High → muted gold, Medium → `--ink-soft`. Never use the emerald accent for severity; emerald is the *positive* color.
+Render severity as **colored text** using `html-report`'s severity tokens — Critical → `--critical` (rust), High → muted gold, Medium → `--ink-soft`. Never use the emerald accent for severity; emerald is the *positive* color.
 
 ## What every report contains (requirements)
 
@@ -62,7 +62,7 @@ When one finding refers to another, link it: `<a href="#finding-N">#N</a>` (ever
 
 ## Restraint (inherited from the design skill)
 
-`professional-html-report`'s "components are a toolkit, not a checklist" principle applies to the **visuals**: scale the apparatus to the report. A three-finding review does not need a snapshot grid *and* a severity chart *and* comparison cards — pick what serves the reader.
+`html-report`'s "components are a toolkit, not a checklist" principle applies to the **visuals**: scale the apparatus to the report. A three-finding review does not need a snapshot grid *and* a severity chart *and* comparison cards — pick what serves the reader.
 
 This restraint is about visual scaffolding, **not** the content requirements above. The verdict, severity model, three-part findings, remediation, numbering, and scope are the *substance* of a security report and always apply, however large or small the engagement.
 
@@ -70,7 +70,7 @@ This restraint is about visual scaffolding, **not** the content requirements abo
 
 | Mistake | Fix |
 |---------|-----|
-| Defining colors / fonts / CSS in this skill | This skill is content only. Reference `professional-html-report` for all visuals. |
+| Defining colors / fonts / CSS in this skill | This skill is content only. Reference `html-report` for all visuals. |
 | Finding without an Impact section | Every finding states why it matters (the alert note), led by the consequence. |
 | Remediation as vague prose | Concrete, ordered steps (the action list) — not "review and harden as appropriate." |
 | Inconsistent severity | Apply the severity model uniformly; the same value appears in the index and the write-up. |
@@ -78,4 +78,4 @@ This restraint is about visual scaffolding, **not** the content requirements abo
 | Emerald used for a severity level | Emerald is the positive accent; severity is rust / gold / ink-soft. |
 | Unlinked cross-references | Link "see #6" as `<a href="#finding-6">#6</a>`. |
 | Burying the verdict | Lead with the verdict tab — overall posture + headline counts at the top. |
-| Re-implementing the warm-paper look by hand | Start from `professional-html-report`'s `reference-report.html` and its components. |
+| Re-implementing the warm-paper look by hand | Start from `html-report`'s `reference-report.html` and its components. |

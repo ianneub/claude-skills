@@ -1,9 +1,9 @@
 ---
-name: professional-html-report
-description: Use when generating a client-facing HTML report, executive brief, assessment, decision brief, or any polished, print-ready single-file document that should look professionally designed rather than like default HTML.
+name: html-report
+description: Use when producing any report or written document as HTML — assessments, audits, executive or decision briefs, summaries, analyses, reviews, findings, status or cost reports — including quick, internal, or one-off ones, not just polished client-facing ones. For single-file, print/PDF-ready HTML documents (not web apps, dashboards, or UIs). If you are about to hand-write HTML or CSS for a report, use this skill first.
 ---
 
-# Professional HTML Report
+# HTML Report
 
 ## Overview
 
